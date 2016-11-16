@@ -1,0 +1,3421 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 14 (filtered)">
+<title>System Manager API 3.0 Documentation</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"Arial Black";
+	panose-1:2 11 10 4 2 1 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+h1
+	{mso-style-link:"Titre 1 Car";
+	margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	background:#004F91;
+	border:none;
+	padding:0cm;
+	font-size:16.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:white;
+	text-transform:uppercase;
+	font-weight:normal;}
+h2
+	{mso-style-link:"Titre 2 Car";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	background:#4A9BD7;
+	border:none;
+	padding:0cm;
+	font-size:14.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:white;
+	text-transform:uppercase;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Titre 3 Car";
+	margin-top:9.0pt;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	page-break-after:avoid;
+	border:none;
+	padding:0cm;
+	font-size:12.0pt;
+	font-family:"Arial","sans-serif";
+	color:#4A9BD7;
+	text-transform:uppercase;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Titre 4 Car";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:#9BC8E9;
+	text-transform:uppercase;
+	font-weight:normal;
+	text-decoration:underline;}
+h5
+	{mso-style-link:"Titre 5 Car";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	color:#0063AC;
+	text-transform:uppercase;
+	font-weight:bold;}
+h6
+	{mso-style-link:"Titre 6 Car";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:#4A9BD7;
+	font-weight:normal;
+	font-style:italic;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Titre 7 Car";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";
+	color:#0063AC;
+	font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Titre 8 Car";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:#9BC8E9;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Titre 9 Car";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:#4A9BD7;
+	font-style:italic;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:11.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:22.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Note de bas de page Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-link:"Commentaire Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"En-tête Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Pied de page Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:9.0pt;
+	font-family:"Arial","sans-serif";
+	color:#9BC8E9;
+	text-transform:uppercase;}
+span.MsoFootnoteReference
+	{vertical-align:super;}
+span.MsoEndnoteReference
+	{vertical-align:super;}
+p.MsoEndnoteText, li.MsoEndnoteText, div.MsoEndnoteText
+	{mso-style-link:"Note de fin Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Titre Car";
+	margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:36.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:black;
+	text-transform:uppercase;
+	letter-spacing:-1.0pt;}
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
+	{mso-style-link:"Titre Car";
+	margin-top:18.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:36.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:black;
+	text-transform:uppercase;
+	letter-spacing:-1.0pt;}
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
+	{mso-style-link:"Titre Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:36.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:black;
+	text-transform:uppercase;
+	letter-spacing:-1.0pt;}
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
+	{mso-style-link:"Titre Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:36.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:black;
+	text-transform:uppercase;
+	letter-spacing:-1.0pt;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Sous-titre Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:18.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:#004F91;
+	text-transform:uppercase;}
+a:link, span.MsoHyperlink
+	{color:#002060;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#00B0F0;
+	text-decoration:underline;}
+p
+	{margin-right:0cm;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-link:"Objet du commentaire Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.0pt;
+	font-family:"Arial","sans-serif";
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Texte de bulles Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:8.0pt;
+	font-family:"Tahoma","sans-serif";}
+span.MsoPlaceholderText
+	{color:gray;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{mso-style-link:"Sans interligne Car";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:36.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	font-size:11.0pt;
+	font-family:"Arial","sans-serif";}
+p.MsoQuote, li.MsoQuote, div.MsoQuote
+	{mso-style-link:"Citation Car";
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:150%;
+	font-size:14.0pt;
+	font-family:"Arial","sans-serif";
+	color:#9BC8E9;
+	font-style:italic;}
+p.MsoIntenseQuote, li.MsoIntenseQuote, div.MsoIntenseQuote
+	{mso-style-link:"Citation intense Car";
+	margin-top:10.0pt;
+	margin-right:0cm;
+	margin-bottom:14.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:150%;
+	border:none;
+	padding:0cm;
+	font-size:13.0pt;
+	font-family:"Arial","sans-serif";
+	color:#7F7F7F;
+	font-weight:bold;
+	font-style:italic;}
+span.MsoSubtleEmphasis
+	{color:#9BC8E9;
+	font-style:italic;}
+span.MsoIntenseEmphasis
+	{color:#004F91;
+	font-weight:bold;
+	font-style:italic;}
+span.MsoSubtleReference
+	{font-family:"Arial","sans-serif";
+	font-variant:small-caps;
+	color:#E4E5E5;
+	text-decoration:none none;}
+span.MsoIntenseReference
+	{font-family:"Arial","sans-serif";
+	color:#E4E5E5;
+	text-transform:uppercase;
+	letter-spacing:.25pt;
+	font-weight:bold;
+	text-decoration:underline;}
+span.MsoBookTitle
+	{font-family:"Arial","sans-serif";
+	color:#236A9F;
+	text-transform:uppercase;
+	letter-spacing:.25pt;
+	font-weight:bold;}
+p.MsoTocHeading, li.MsoTocHeading, div.MsoTocHeading
+	{margin-top:24.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:120%;
+	page-break-after:avoid;
+	background:#004F91;
+	border:none;
+	padding:0cm;
+	font-size:16.0pt;
+	font-family:"Arial Black","sans-serif";
+	color:white;
+	text-transform:uppercase;}
+span.Titre1Car
+	{mso-style-name:"Titre 1 Car";
+	mso-style-link:"Titre 1";
+	font-family:"Arial Black","sans-serif";
+	color:white;
+	text-transform:uppercase;
+	background:#004F91;}
+span.Titre2Car
+	{mso-style-name:"Titre 2 Car";
+	mso-style-link:"Titre 2";
+	font-family:"Arial Black","sans-serif";
+	color:white;
+	text-transform:uppercase;
+	background:#4A9BD7;
+	font-weight:bold;}
+span.Titre3Car
+	{mso-style-name:"Titre 3 Car";
+	mso-style-link:"Titre 3";
+	font-family:"Times New Roman","serif";
+	color:#4A9BD7;
+	text-transform:uppercase;
+	font-weight:bold;}
+span.Titre4Car
+	{mso-style-name:"Titre 4 Car";
+	mso-style-link:"Titre 4";
+	font-family:"Arial Black","sans-serif";
+	color:#9BC8E9;
+	text-transform:uppercase;
+	text-decoration:underline;}
+span.Titre5Car
+	{mso-style-name:"Titre 5 Car";
+	mso-style-link:"Titre 5";
+	font-family:"Times New Roman","serif";
+	color:#0063AC;
+	text-transform:uppercase;
+	font-weight:bold;}
+span.Titre6Car
+	{mso-style-name:"Titre 6 Car";
+	mso-style-link:"Titre 6";
+	font-family:"Arial Black","sans-serif";
+	color:#4A9BD7;
+	font-style:italic;}
+span.Titre7Car
+	{mso-style-name:"Titre 7 Car";
+	mso-style-link:"Titre 7";
+	font-family:"Times New Roman","serif";
+	color:#0063AC;
+	font-weight:bold;}
+span.Titre8Car
+	{mso-style-name:"Titre 8 Car";
+	mso-style-link:"Titre 8";
+	font-family:"Arial Black","sans-serif";
+	color:#9BC8E9;}
+span.Titre9Car
+	{mso-style-name:"Titre 9 Car";
+	mso-style-link:"Titre 9";
+	font-family:"Arial Black","sans-serif";
+	color:#4A9BD7;
+	font-style:italic;}
+span.NotedebasdepageCar
+	{mso-style-name:"Note de bas de page Car";
+	mso-style-link:"Note de bas de page";}
+span.CommentaireCar
+	{mso-style-name:"Commentaire Car";
+	mso-style-link:Commentaire;}
+span.En-tteCar
+	{mso-style-name:"En-tête Car";
+	mso-style-link:En-tête;}
+span.PieddepageCar
+	{mso-style-name:"Pied de page Car";
+	mso-style-link:"Pied de page";}
+span.NotedefinCar
+	{mso-style-name:"Note de fin Car";
+	mso-style-link:"Note de fin";}
+span.TitreCar
+	{mso-style-name:"Titre Car";
+	mso-style-link:Titre;
+	font-family:"Arial Black","sans-serif";
+	color:black;
+	text-transform:uppercase;
+	letter-spacing:-1.0pt;}
+span.Sous-titreCar
+	{mso-style-name:"Sous-titre Car";
+	mso-style-link:Sous-titre;
+	font-family:"Arial Black","sans-serif";
+	color:#004F91;
+	text-transform:uppercase;}
+span.ObjetducommentaireCar
+	{mso-style-name:"Objet du commentaire Car";
+	mso-style-link:"Objet du commentaire";
+	font-weight:bold;}
+span.TextedebullesCar
+	{mso-style-name:"Texte de bulles Car";
+	mso-style-link:"Texte de bulles";
+	font-family:"Tahoma","sans-serif";}
+span.SansinterligneCar
+	{mso-style-name:"Sans interligne Car";
+	mso-style-link:"Sans interligne";}
+span.CitationCar
+	{mso-style-name:"Citation Car";
+	mso-style-link:Citation;
+	color:#9BC8E9;
+	font-style:italic;}
+span.CitationintenseCar
+	{mso-style-name:"Citation intense Car";
+	mso-style-link:"Citation intense";
+	color:#7F7F7F;
+	font-weight:bold;
+	font-style:italic;}
+span.apple-converted-space
+	{mso-style-name:apple-converted-space;}
+.MsoChpDefault
+	{font-size:10.0pt;
+	font-family:"Arial","sans-serif";}
+ /* Page Definitions */
+ @page WordSection1
+	{size:21.0cm 841.95pt;
+	margin:57.4pt 52.5pt 36.0pt 52.5pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-CA link="#002060" vlink="#00B0F0">
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:115%'><span style='font-size:28.0pt;
+line-height:115%;font-family:"Arial Black","sans-serif";color:black;text-transform:
+uppercase;letter-spacing:-1.0pt'>&nbsp;</span></p>
+
+<p class=MsoTitle><span style='font-size:26.0pt'>System Manager API 3.0 Documentation</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187904"><span lang=EN-CA>No Security</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187905"><span lang=EN-CA>Version</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187906"><span lang=EN-CA>Website Config</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187907"><span lang=EN-CA>system information</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187908"><span lang=EN-CA>Logs</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187909"><span lang=EN-CA>Authentication</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187910"><span lang=EN-CA>Auth</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187904"><span lang=EN-CA>Security</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187905"><span lang=EN-CA>Certificates</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187906"><span lang=EN-CA>HTTPS</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>2</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187911"><span lang=EN-CA>User Management</span><span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187912"><span lang=EN-CA>User List</span><span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187913"><span lang=EN-CA>Add User</span><span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>3</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187914"><span lang=EN-CA>Modify User</span><span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187915"><span lang=EN-CA>Delete User</span><span
+style='color:windowtext;display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>4</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187916"><span lang=EN-CA>Platform</span><span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187917"><span lang=EN-CA>Store</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187918"><span lang=EN-CA>Available Models</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187919"><span lang=EN-CA>Switch Speed</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187907"><span lang=EN-CA>Fabric Current Port Mode</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187908"><span lang=EN-CA>Fabric Default Port Mode</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>5</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187920"><span lang=EN-CA>Shared IP</span><span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>6</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187921"><span lang=EN-CA>Restart Snmp</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>7</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187922"><span lang=EN-CA>Upload SNMP Config</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>7</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187923"><span lang=EN-CA>Upload Bundle</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187924"><span lang=EN-CA>Bundle Info</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187925"><span lang=EN-CA>OneClick Upgrade</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>8</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187926"><span lang=EN-CA>Monitored Sensors</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187927"><span lang=EN-CA>KVM Password</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187909"><span lang=EN-CA>Alarm</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187910"><span lang=EN-CA>Switch OID</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187911"><span lang=EN-CA>LED Identify</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187912"><span lang=EN-CA>Nodes</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>9</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187928"><span lang=EN-CA>Node</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>10</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187929"><span lang=EN-CA>Management Network</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>10</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187930"><span lang=EN-CA>Power Command</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>11</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187931"><span lang=EN-CA>Sensors</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187932"><span lang=EN-CA>Monitored Sensors</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>12</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187933"><span lang=EN-CA>Health Details</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187913"><span lang=EN-CA>Store</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187914"><span lang=EN-CA>Payloads</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187915"><span lang=EN-CA>Alarm</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187916"><span lang=EN-CA>LED Identify</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187934"><span lang=EN-CA>Payload</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187935"><span lang=EN-CA>Provision KVM</span><span
+style='color:windowtext;display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>13</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187937"><span lang=EN-CA>Power Command</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187917"><span lang=EN-CA>Nics</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187918"><span lang=EN-CA>Description</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187919"><span lang=EN-CA>Network Interface</span><span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187920"><span lang=EN-CA>Network</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>14</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187938"><span lang=EN-CA>Sensor</span><span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187939"><span lang=EN-CA>Monitor</span><span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187940"><span lang=EN-CA>Details</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187921"><span lang=EN-CA>System Event Log (SEL)</span><span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187922"><span lang=EN-CA>Events</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187923"><span lang=EN-CA>Clear</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187924"><span lang=EN-CA>Settings</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187925"><span lang=EN-CA>CSV</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187941"><span lang=EN-CA>PSU</span><span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187942"><span lang=EN-CA>Details</span><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187943"><span lang=EN-CA>Reset Stats</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187926"><span lang=EN-CA>Alarm</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187927"><span lang=EN-CA>Fans</span><span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>15</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187928"><span lang=EN-CA>LED Identify</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></span></p>
+
+<p class=MsoToc3><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc519187929"><span lang=EN-CA>Alarm</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></span></p>
+
+<p class=MsoToc1><span class=MsoHyperlink><span lang=EN-US><a
+href="#_Toc419187944"><span lang=EN-CA>API Error Codes and Messages</span><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>16</span></a></span></span></p>
+
+<p class=MsoNormal><b>&nbsp;</b></p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#004F91'>
+
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187904">No
+Security</a></h1>
+
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187905">Version</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+The only request that does not start with /v3. It is designed to be compatible
+with any version so the user can determine it before actually using the API. </p>
+
+<p class=MsoNormal>Call: /Version</p>
+
+<p class=MsoNormal>Return: Version number.</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187906">Website Config</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Returns
+an object containing the (customisable) configuration of the visual aspects of
+the web interface. No authentication is required to access this information.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/<i><span style='font-size:9.0pt;
+line-height:120%'>&lt;platform number&gt;</span></i>/WebsiteConfig</p>
+
+<p class=MsoNormal><span lang=EN-US>Return: JSON object of web configuration
+options.</span></p>
+
+<p class=MsoNormal><span lang=EN-US>            </span>Attributes:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>baseColor</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>lightBaseColor</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>altColor</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>lightAltColor</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>lighterAltColor</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>companyName</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>favicon</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>logo</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187907">system information</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get a human readable file containing the system information.</p>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Call:
+/v3/Platform/<i><span style='font-size:9.0pt;line-height:120%'>&lt;platform
+number&gt;</span></i>/SystemInformation.txt</p>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Return: A
+file containing a human readable text (first part) and the raw JSON from which it
+was generated  (second part).</p>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>&nbsp;</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187908">Logs</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the logs of the platform. They can be used to troubleshoot platform
+problems.</p>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Call:
+/v3/Platform/<i><span style='font-size:9.0pt;line-height:120%'>&lt;platform number&gt;</span></i>/Logs</p>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Return: A
+compressed log file.</p>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>&nbsp;</p>
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187909">Authentication</a></h1>
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc419187910">Auth</a></h3>
+</div>
+
+<h5>GET / POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+The API 3.0 uses a&nbsp;<span lang=EN-US><a
+href="http://en.wikipedia.org/wiki/Basic_access_authentication"><span
+lang=EN-CA>Basic http Authentication</span></a></span>&nbsp;on nearly all
+request. The Auth call is used to authenticate the user and generate a
+temporary token that expires after 30 minutes of inactivity. The token is used
+as the password for every subsequent API requests that require Authentication.</p>
+<p class=MsoNormal>Call: /v3/Auth</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: JSON object containing attributes:</p>
+<p class=MsoListParagraphCxSpFirst style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>status</p>
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>code</p>
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>token         :
+The token to use for other request that need authentication</p>
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>roleKey      :
+The role key of the authenticated user</p>
+<p class=MsoListParagraphCxSpLast style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>roleText&nbsp;    :
+The role text for the authenticated user.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{“status”:”Failure”, “code”: 23, “message”: “Invalid password
+for user”}</span></p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;:&quot;Failure&quot;, &quot;code&quot;:
+29, &quot;message&quot;: &quot;Basic HTTP Authentication required&quot;}</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command&nbsp;:</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;password&gt; 
+</i>http://<i>&lt;platformIP&gt;</i>:9090/v3/Auth</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc519187904">Security</a></h1>
+</div>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187905">Certificates</a></h3>
+</div>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Used to upload
+SSL certificates for securing the platform.</p>
+<p class=MsoNormal>HTTPS mode must be enabled to use this call.</p>
+<p class=MsoNormal>Call: /v3/Security/Certificates</p>
+<p class=MsoNormal>Accepted files:</p>
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>key:
+The private key</p>
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>cert:
+The certificate</p>
+<p class=MsoListParagraphCxSpLast style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>cacert:
+The allowed Certificate Authorities</p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 43,
+&quot;message&quot;: &quot;Certificate upload already in progress&quot; }</span></p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 44,
+&quot;message&quot;: &quot;Failed to write uploaded file.&quot; }</span></p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 45,
+&quot;message&quot;: &quot;Uploaded .key file is protected by passphrase.\n
+Please remove and re-upload.&quot; }</span></p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 46,
+&quot;message&quot;: &quot;Missing file. Must upload at least 'key' and 'cert' files.&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl https://<i>&lt;platformIp&gt;</i>/v3/Security/Certificates</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -k -F key=@filename -F cert=@filename -F cacert=@filename</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187906">HTTPS</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Used to
+retrieve the HTTPS settings.</p>
+<p class=MsoNormal>Call: /v3/Security/HTTPS</p>
+<p class=MsoNormal>Return:</p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>{
+&quot;enabled&quot;:&quot;false&quot;, &quot;strictMode&quot;:&quot;false&quot; }</span></p>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Used to
+modify the HTTPS settings.</p>
+<p class=MsoNormal>Call: /v3/Security/HTTPS</p>
+<p class=MsoNormal>Parameters:</p>
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>enabled:
+To enable or disable the feature, &quot;true&quot; or &quot;false&quot;</p>
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>strictMode:
+To secure inter SYMKLOUD communications, &quot;true&quot; or &quot;false&quot;. Not yet available.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 4,
+&quot;message&quot;: &quot;Bad Parameters&quot; }</span></p>
+
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl https://<i>&lt;platformIp&gt;</i>/v3/Security/HTTPS</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d &quot;enabled=true&amp;strictMode=false&quot;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#004F91'>
+
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187911">User
+Management</a></h1>
+
+</div>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187912">User List</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+a list of information for all users on the platform.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/UserList</p>
+
+<p class=MsoNormal>Return: JSON array of user object with attributes name, roleKey
+and roleText:</p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>{
+&quot;userList&quot;: [{ &quot;name&quot; : &quot;admin&quot;,
+&quot;roleKey&quot; : &quot;admin&quot;, &quot;roleText&quot; :
+&quot;Administrator&quot;}], &quot;availableRoles&quot;: [{ &quot;key&quot;:
+&quot;admin&quot;, &quot;text&quot;: &quot;Administrator&quot;}, {
+&quot;key&quot;: &quot;tech&quot;, &quot;text&quot;: &quot;Technician&quot;}]}</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187913">Add User</a></h3>
+
+</div>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Add
+a new user. </p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/AddUser</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>name:
+the name of the user. Unique alpha-numeric characters.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>password:
+the password of the user. Excluded characters: “  ‘  \</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>roleKey:
+the role of the user, “admin” or “tech” are available.</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 1,
+&quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 4,
+&quot;message&quot;: “Bad parameters&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 26,
+&quot;message&quot;: “User already exists&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>AddUser</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d
+“name=Jim&amp;password=1234&amp;roleKey=tech”</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187914">Modify User</a></h3>
+
+</div>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Modify
+settings for a user. The “admin” and “IPMI” users cannot have their names or
+roles changed. A user with “admin” role can modify any attribute of any user
+other than the one named “Admin”. Users that have a “tech” role can only modify
+their own password.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/ModifyUser</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>name:
+The name of the user to modify</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>newName
+(optional): Replace the current name with newName</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>newPassword
+(optional): Replace the current password with newPassword</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:126.0pt;text-indent:
+-18.0pt'><span style='font-family:"Courier New"'>o<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span>It is the only field a “tech” can modify on his own.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>newRoleKey
+(optional): Replace the current roleKey with newRoleKey.</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 20,
+&quot;message&quot;: &quot;Missing parameter&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 25,
+&quot;message&quot;: “User does not exist&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 26,
+&quot;message&quot;: “User already exists&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 34,
+&quot;message&quot;: “User only allowed to modify his password&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>ModifyUser</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d
+“name=Jim&amp;newPassword=1234&amp;newRoleKey=admin”</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187915">Delete User</a></h3>
+
+</div>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Delete
+a user from the platform. The user with name “Admin” and the one with the
+“IPMI” role cannot be deleted.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/DeleteUser</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraph style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>name:
+The name of the user to delete</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors:</p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 4,
+&quot;message&quot;: &quot;Bad parameters&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 25,
+&quot;message&quot;: “User does not exist&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>DeleteUser</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d “name=Jim”</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#004F91'>
+
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187916">Platform</a></h1>
+
+</div>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187917">Store</a></h3>
+
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the store information the platform.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Store</p>
+
+<p class=MsoNormal>            <i>platform number : </i>0 for current platform
+or 1 – 8 corresponding to platform number</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: JSON object representing the Store</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>i.e.: { &quot;name&quot;: &quot;Platform #6&quot;,
+&quot;number&quot;: &quot;6&quot;, &quot;health&quot;:  … </span><span
+style='font-size:10.0pt;line-height:120%'>}</span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:10.0pt;
+line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187918">Available Models</a></h3>
+
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the models of the nodes and hubs present in the platform.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/AvailableModels</p>
+
+<p class=MsoNormal>            <i>platform number : </i>0 for current platform
+or 1 – 8 corresponding to platform number</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: JSON array of the names of node and hub
+models.</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>i.e.:{&quot;models&quot; :
+[&quot;MSH8900&quot;,&quot;MSP8000&quot;,&quot;MSP8020&quot;]}</span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187919">Switch Speed</a></h3>
+
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the platform’s switch speed (for slots 7&amp;9).</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SwitchSpeed</p>
+
+<p class=MsoNormal>            <i>platform number : </i>0 for current platform
+or 1 – 8 corresponding to platform number</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: JSON array of slot speed objects.</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>i.e.:</span> <span style='font-size:9.0pt;line-height:120%'>[
+{ &quot;slot&quot;:&quot;7&quot;, &quot;speed&quot;:&quot;10&quot; }, {
+&quot;slot&quot;:&quot;9&quot;, &quot;speed&quot;:&quot;1&quot; } ]</span></p>
+
+<h5>&nbsp;</h5>
+
+<h5>Post</h5>
+
+<p class=MsoNormal>Description: Set the platform’s switch speed (for slots 7
+&amp; 9).</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SwitchSpeed</p>
+
+<p class=MsoNormal>Parameters: </p>
+
+<p class=MsoNormal>speedConfig: the configuration of the switch speed. See the JSON example below.</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Success&quot;, &quot;code&quot;:
+0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{“status”: ”Failure”, “code”: 4, “message”: “Bad parameters”}</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;
+</i>http://<i>&lt;platformIP&gt;</i>:9090/v3/Platform/&lt;<i>platform number</i>&gt;/SwitchSpeed
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-indent:
+36.0pt'><span style='font-size:9.0pt;line-height:120%'>                                                -d
+'speedConfig=[ { &quot;slot&quot;: &quot;7&quot;, &quot;speed&quot;:
+&quot;10&quot; }, { &quot;slot&quot;:&quot;9&quot;,
+&quot;speed&quot;:&quot;1&quot;} ]'</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187907">Fabric Current Port Mode</a></h3>
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the <b>Current</b> Fabric Port Modes for all Nodes (MSH891x only).</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/FabricCurrentPortMode</p>
+<p class=MsoNormal>            <i>platform number : </i>0 for current platform
+or 1 – 8 corresponding to platform number</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: JSON array of current fabric port mode objects.</p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>i.e.:</span> <span style='font-size:9.0pt;line-height:120%'>[
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;1&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;2&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;3&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;4&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;5&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;6&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;7&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;8&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;9&quot; } ]</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+<p class=MsoNormal>&nbsp;</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187908">Fabric Default Port Mode</a></h3>
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the <b>Default</b> Fabric Port Modes for all Nodes (MSH891x only).</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/FabricDefaultPortMode</p>
+<p class=MsoNormal>            <i>platform number : </i>0 for current platform
+or 1 – 8 corresponding to platform number</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: JSON array of default fabric port mode objects.</p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>i.e.:</span> <span style='font-size:9.0pt;line-height:120%'>[
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;1&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;2&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;3&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;4&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;5&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;6&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;7&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;8&quot; },
+{ &quot;mode&quot;:&quot;255&quot;, &quot;node&quot;:&quot;9&quot; } ]</span></p>
+
+<h5>&nbsp;</h5>
+
+<h5>Post</h5>
+
+<p class=MsoNormal>Description: Set the <b>Default</b> Fabric Port Modes on selected nodes (MSH891x only).</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/FabricDefaultPortMode</p>
+<p class=MsoNormal>Parameters: </p>
+<p class=MsoNormal>fabricPortModeConfig: Default Fabric Port Mode. See the JSON example below.
+0 = Dual Port Mode, 2 = Single Port / Quad Lane Mode, 3 = Single Port / Single Lane Mode, 255 = Switch Factory Default.</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: </p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Success&quot;, &quot;code&quot;:
+0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 4, &quot;message&quot;: &quot;Bad parameters&quot;}</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 6, &quot;message&quot;: &quot;Invalid Slot Number&quot;}</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 56, &quot;message&quot;: &quot;Invalid Fabric Port Mode Setting&quot;}</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;
+</i>http://<i>&lt;platformIP&gt;</i>:9090/v3/Platform/&lt;<i>platform number</i>&gt;/FabricDefaultPortMode
+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-indent:
+36.0pt'><span style='font-size:9.0pt;line-height:120%'>                                                -d
+'fabricPortModeConfig=[{ &quot;node&quot;: &quot;1&quot;, &quot;mode&quot;:&quot;0&quot; },
+{ &quot;node&quot;:&quot;2&quot;, &quot;mode&quot;:&quot;2&quot;},
+{ &quot;node&quot;:&quot;3&quot;, &quot;mode&quot;:&quot;2&quot;},
+{ &quot;node&quot;:&quot;8&quot;, &quot;mode&quot;:&quot;255&quot;}]'</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc419187920">Shared IP</a></h3>
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the IP used by the platform to talk to the active shelf manager. It
+contains the IP and the Netmask used to set the shared IP.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SharedIp</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: JSON object representing shared IP
+information.</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>i.e.:</span> <span style='font-size:9.0pt;line-height:120%'>{
+&quot;ip&quot;:&quot;192.168.42.42&quot;, &quot;netmask&quot;:&quot;255.255.0.0&quot;
+}</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{“status”: ”Failure”, “code”: 4, “message”: “Bad parameters”}</span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{“status”: ”Failure”, “code”: 5, “message”: “Internal Error”}</span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt'>&nbsp;</p>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:58.5pt;text-indent:-58.5pt'>Desciption: Set
+the shared IP configuration. This can be used afterwards as a single IP to
+connect to the active shelf manager.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SharedIp</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ip:
+The IP to which the active shelf manager of the platform will answer.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>netmask:
+The netmask of the network on which the shared IP is configured. CIDR or IP format.</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'>If either of the parameters is
+not set, the shared IP configuration will be deleted.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Return:</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'>Success: </p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:36.0pt'><span
+style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:&quot;Success&quot;,
+&quot;code&quot;: 0, &quot;message&quot;: &quot;&quot;}</span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt'>Possible errors:</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:36.0pt'><span
+style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:&quot;Failure&quot;,
+&quot;code&quot;: 4, &quot;message&quot;: &quot;Bad parameters&quot;}</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;
+</i>http://<i>&lt;platformIP&gt;</i>:9090/v3/Platform/&lt;<i>platform number</i>&gt;/SharedIp</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>                                                                                -d
+“ip=192.168.2.3&amp;netmask=24”</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187921">Restart Snmp</a></h3>
+
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Restart
+the SNMP server.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/RestartSnmp</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span lang=EN-US
+style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command&nbsp;:</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;</i>
+http://<i>&lt;platformIp&gt;:9090/v3/Platform/&lt;platform number&gt;/RestartSnmp</i></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187922">Upload SNMP Config</a></h3>
+
+</div>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Upload and apply a new configuration for SNMP.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/UploadSnmpConfig</p>
+
+<p class=MsoNormal>Return:</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span lang=EN-US
+style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command&nbsp;:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl -F file=@<i>&lt;filename&gt;</i>
+http://<i>&lt;platformIp&gt;:9090/v3/Platform/&lt;platform number&gt;/UploadSnmpConfig</i></span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><i><span
+style='font-size:9.0pt;line-height:120%'>                                                                </span></i><span
+style='font-size:9.0pt;line-height:120%'>--user <i>&lt;user&gt;:&lt;token&gt;</i></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187923">Upload Bundle</a></h3>
+
+</div>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Upload a compressed Bundle .zip file used by the OneClickUpgrade feature.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/UploadBundle</p>
+
+<p class=MsoNormal>Return:</p>
+
+<p class=MsoListParagraph style='margin-left:40.5pt;text-indent:-18.0pt'><span
+lang=EN-US style='font-size:9.0pt;line-height:120%'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Array of supported models <span lang=EN-US style='font-size:9.0pt;
+line-height:120%'>i.e.: [ ‘MSP8000’, ‘MSP8020’]</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command&nbsp;:</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;</i>
+-F file=@<i>&lt;filename&gt;</i> http://<i>&lt;platformIp&gt;:9090/v3/Platform/&lt;platform
+number&gt;/UploadBundle</i></span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187924">Bundle Info</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: List
+the models supported by the local bundle. These can be updated by a one click
+upgrade.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/BundleInfo</p>
+
+<p class=MsoNormal>Return:</p>
+
+<p class=MsoListParagraph style='margin-left:40.5pt;text-indent:-18.0pt'><span
+lang=EN-US style='font-size:9.0pt;line-height:120%'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Array of supported models <span lang=EN-US style='font-size:9.0pt;
+line-height:120%'>i.e&nbsp;: [ ‘MSP8000’, ‘MSP8020’]</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;</i>
+http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform number&gt;/</i>BundleInfo</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187925">OneClick Upgrade</a></h3>
+
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the current status of the One-Click Upgrade.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/OneClickUpgrade</p>
+
+<p class=MsoNormal>Return: The status of all the nodes upgrading for the
+Platform. </p>
+
+<p class=MsoNormal>i.e.: <span style='font-size:9.0pt;line-height:120%'>{
+&quot;nodeType&quot;: &quot;&quot;,&quot;inProgress&quot;:
+&quot;0&quot;,&quot;currentNode&quot;: &quot;&quot;,&quot;allStatus&quot;:
+[],&quot;totalProgress&quot;: 0, &quot;state&quot;: &quot;Completed&quot;,
+&quot;currentStatus&quot;: {}}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Launch a One-Click Upgrade on the platform.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/OneClickUpgrade</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>node
+(optional): Specify a single node (by ID) to upgrade.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>model
+(optional): Specify the model to upgrade, if none specify it will upgrade all
+the node possible with the current bundle</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>forceUpdate&nbsp;(optional):
+Without this parameters, only the out of date node/hub will be updated. Needed
+if you want to go to a previous version or to upgrade components even if they
+are at the same version (i.e.: forceUpdate=true).</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{“status”:”Failure”, “code”: 1, “message”: “”}</span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span lang=EN-US
+style='font-size:9.0pt;line-height:120%'>{“status”:”Failure”, “code”: 38,
+“message”: “</span><span lang=EN-US style='font-size:9.0pt;line-height:120%'>No
+bundle was found. Please upload a valid Bundle before upgrading”}</span></p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span lang=EN-US
+style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command:</span></p>
+
+<p class=MsoNormal>To upgrade a specific node model regardless of its firmware
+version:</p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;
+</i>-d ’model=MSP8020&amp;forceUpdate=true’<i> </i>http://<i>&lt;platformIP&gt;</i>:9090/v3/Multi/OneClickUpgrade</span></p>
+
+<p class=MsoNormal>To upgrade all models supported by the Bundle:</p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;
+</i>http://<i>&lt;platformIP&gt;</i>:9090/v3/Multi/OneClickUpgrade</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187926">Monitored Sensors</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+a list of all the monitored sensors along with their value.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/MonitoredSensors</p>
+
+<p class=MsoNormal>Return:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:40.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Array
+of monitored sensors</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:40.5pt'><span
+style='font-size:9.0pt;line-height:120%'>i.e.: { &quot;platform&quot;:
+&quot;6&quot;, &quot;monitoredSensors&quot;: [{&quot;node&quot;: &quot;1&quot;,
+&quot;monitoredSensors&quot;: [ {&quot;number&quot;: &quot;27&quot;,
+&quot;name&quot;: &quot;Health Status&quot;, &quot;type&quot;: &quot;Platform Alert&quot;,
+&quot;unit&quot;: &quot;&quot;, &quot;analog&quot;: &quot;no&quot;,
+&quot;monitored&quot;: &quot;yes&quot;, &quot;aggregation&quot;:
+&quot;yes&quot;, &quot;value&quot;: &quot;0x8002&quot;}]}, {&quot;node&quot;:
+&quot;3&quot;, &quot;monitoredSensors&quot;: [ {&quot;number&quot;:
+&quot;23&quot;, &quot;name&quot;: &quot;Health Error&quot;, &quot;type&quot;:
+&quot;Platform Alert&quot;, &quot;unit&quot;: &quot;&quot;, &quot;analog&quot;:
+&quot;no&quot;, &quot;monitored&quot;: &quot;yes&quot;, &quot;aggregation&quot;:
+&quot;no&quot;, &quot;value&quot;: &quot;0x8001&quot;}]}, {&quot;node&quot;:
+&quot;10&quot;, &quot;monitoredSensors&quot;: [ {&quot;number&quot;:
+&quot;70&quot;, &quot;name&quot;: &quot;Health Status&quot;, &quot;type&quot;:
+&quot;Platform Alert&quot;, &quot;unit&quot;: &quot;&quot;, &quot;analog&quot;:
+&quot;no&quot;, &quot;monitored&quot;: &quot;yes&quot;,
+&quot;aggregation&quot;: &quot;yes&quot;, &quot;value&quot;:
+&quot;0x8002&quot;}]}, {&quot;node&quot;: &quot;11&quot;, &quot;monitoredSensors&quot;:
+[ {&quot;number&quot;: &quot;70&quot;, &quot;name&quot;: &quot;Health
+Status&quot;, &quot;type&quot;: &quot;Platform Alert&quot;, &quot;unit&quot;:
+&quot;&quot;, &quot;analog&quot;: &quot;no&quot;, &quot;monitored&quot;:
+&quot;yes&quot;, &quot;aggregation&quot;: &quot;yes&quot;, &quot;value&quot;:
+&quot;0x8002&quot;}]}]}</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187927">KVM Password</a></h3>
+
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the KVM password.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/KVMPassword</p>
+
+<p class=MsoNormal>Return: JSON object with the password of the KVM instance of
+the platform. </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:
+{ “password”: “&lt;<i>returned password</i>&gt;”}</span></p>
+
+<h5><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></h5>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Set
+the KVM password.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/KVMPassword</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraph style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>password:
+The password to set. It must be exactly 8 characters long, contain at least an
+uppercase and lower case letter, a digit and a symbol.</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 20,
+&quot;message&quot;: &quot;Missing parameter&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;:&quot;Failure&quot;,
+&quot;code&quot;: 37, &quot;message&quot;: &quot;The password format must
+have: a length of exactly 8 characters, at least 1 lower case and 1 upper case
+letter, uses 1 or more number, uses 1 or more special character.&quot;}</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></i></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187909">Alarm</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the chassis current alarm information: current severity and components in error</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Alarm</p>
+<p class=MsoNormal>Return: JSON object with the alarm level and components in alarm for the platform.</p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>Without alarm:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>
+{ &quot;alarmlevel&quot;: &quot;None&quot;, &quot;components&quot;: [ { &quot;nodes&quot; : [] },
+{ &quot;psu&quot; : [] }, { &quot;fans&quot; : [] } ], &quot;text&quot;: &quot;&quot;}</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>Missing fan:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>
+{ &quot;alarmlevel&quot;: &quot;Major&quot;, &quot;components&quot;: [ { &quot;nodes&quot; :
+[&quot;10&quot;, &quot;11&quot;] }, { &quot;psu&quot; : [] }, { &quot;fans&quot; : [] } ],
+&quot;text&quot;: &quot;HubNode 1, HubNode 2 at alarm level Major&quot;}</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>PSU issue:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>
+{ &quot;alarmlevel&quot;: &quot;Critical&quot;, &quot;components&quot;: [ { &quot;nodes&quot; : [] },
+{ &quot;psu&quot; : [&quot;1&quot;] }, { &quot;fans&quot; : [] } ],
+&quot;text&quot;: &quot;PSU 1 at alarm level Critical&quot;}</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></i></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187910">Switch OID</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the platform's switch root OID</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SwitchOID</p>
+<p class=MsoNormal>Return:</p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>On a MSH8900 Shelf Manager:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>
+{ &quot;oid&quot;: &quot;1.3.6.1.4.1.6603&quot;}</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>On a MSH891x Shelf Manager:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>
+{ &quot;oid&quot;: &quot;1.3.6.1.4.1.15000&quot;}</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></i></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187911">LED Identify</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the LED Identify state</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/LED/Identify</p>
+<p class=MsoNormal>Return: JSON object with the LED state &quot;on&quot;/&quot;off&quot;.</p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>
+{ &quot;status&quot;: &quot;off&quot;}</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></i></p>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Turn on/off the chassis LED Identify state</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/LED/Identify</p>
+<p class=MsoNormal>Parameters:</p>
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>command:
+The state to apply to the LED: &quot;on&quot; or &quot;off&quot;</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: </p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command:</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;</i>
+http://<i>&lt;platformIP&gt;</i>:9090/v3/Platform/&lt;<i>platform number&gt;</i>/LED/Identify -d &quot;command=on&quot;</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></i></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187912">Nodes</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the Nodes list</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Nodes</p>
+<p class=MsoNormal>Return: JSON object with the present nodes list</p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>
+{ &quot;presentNodes&quot;:
+[{&quot;type&quot;: &quot;HubNode&quot;, &quot;number&quot;: &quot;10&quot;},
+{&quot;type&quot;: &quot;HubNode&quot;, &quot;number&quot;: &quot;11&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;1&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;2&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;3&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;4&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;5&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;6&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;7&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;8&quot;},
+{&quot;type&quot;: &quot;Node&quot;, &quot;number&quot;: &quot;9&quot;}]}</span></p>
+
+<p class=MsoNormal><i><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></i></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187928">Node</a></h1>
+</div>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187929">Management Network</a></h3>
+
+</div>
+
+<h5>GET</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description:
+Get the management network configuration information for one of the platform's
+nodes.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/ManagementNetwork</p>
+
+<p class=MsoNormal>Return: JSON object with the following attributes:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ip</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ip
+source: “static” or “dhcp”</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>netmask:
+CIDR format ( 0 to 32 ) or IP format (0-255.0-255.0-255.0-255)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>gateway</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>vlan</p>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Set
+the management network configuration information for one of the platform's
+nodes.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;platform number&gt;/Node/&lt;node
+number&gt;/ManagementNetwork</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ip
+(optional): The management ip</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ip
+source (optional): “static” or “dhcp”</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>netmask
+(optional): CIDR format ( 0 to 32 ) or IP format (0-255.0-255.0-255.0-255)</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>gateway
+(optional):</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>vlan
+(optional):</p>
+
+<p class=MsoNormal style='margin-left:31.5pt'>If a parameter is not set, it
+will remain unchanged.</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>Node/&lt;<i>node number</i>&gt;/ManagementNetwork</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d
+“ip=1.1.1.1&amp;ipsource=static&amp;netmask=27&amp;vlan=101”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187930">Power Command</a></h3>
+
+</div>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Send
+a power command to a specific node. </p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/PowerCommand</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>payload
+(optional): To affect only a specific payload on nodes with multiple ones.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>command:
+The command to send to the node. Valid commands:</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>activate</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>deactivate</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>reset</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 1,
+&quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 2,
+&quot;message&quot;: &quot;Target Node is not present&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 3,
+&quot;message&quot;: &quot;Invalid payload ID&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 4,
+&quot;message&quot;: &quot;Bad parameters&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>Node/&lt;<i>node number</i>&gt;/PowerCommand</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d “payload=2&amp;command=deactivate”</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187931">Sensors</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the sensors present on the specified node and their status. A sensor that is
+not monitored won’t return a value.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Sensors</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;Sensors&quot;:
+[ {&quot;number&quot;: &quot;0&quot;, &quot;name&quot;: &quot;FRU0 Hot
+Swap&quot;, &quot;type&quot;: &quot;OEM Reserved&quot;, &quot;unit&quot;:
+&quot;&quot;, &quot;analog&quot;: &quot;no&quot;, &quot;monitored&quot;:
+&quot;no&quot;, &quot;aggregation&quot;: &quot;no&quot;, &quot;value&quot;:
+&quot;0x0&quot;}, {&quot;number&quot;: &quot;1&quot;, &quot;name&quot;:
+&quot;FRU1 Hot Swap&quot;, &quot;type&quot;: &quot;OEM Reserved&quot;,
+&quot;unit&quot;: &quot;&quot;, &quot;analog&quot;: &quot;no&quot;,
+&quot;monitored&quot;: &quot;no&quot;, &quot;aggregation&quot;: &quot;no&quot;,
+&quot;value&quot;: &quot;0x0&quot;}, … ]}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187932">Monitored Sensors</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the sensors that are monitored on the specified node and their statuses.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/MonitoredSensors</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;node&quot;:
+&quot;1&quot;, &quot;monitoredSensors&quot;: [ {&quot;number&quot;:
+&quot;27&quot;, &quot;name&quot;: &quot;Health Status&quot;, &quot;type&quot;:
+&quot;Platform Alert&quot;, &quot;unit&quot;: &quot;&quot;, &quot;analog&quot;:
+&quot;no&quot;, &quot;monitored&quot;: &quot;yes&quot;,
+&quot;aggregation&quot;: &quot;yes&quot;, &quot;value&quot;:
+&quot;0x8002&quot;}]}</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:120%'>&nbsp;</span></p>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Modify
+which sensors are monitored. </p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/MonitoredSensors</p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>list:
+a comma separated list of the sensor numbers between square brackets i.e.:
+[1,3,4,9]</p>
+
+<p class=MsoListParagraphCxSpLast align=left style='margin-left:49.5pt;
+text-align:left;text-indent:-18.0pt'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>value: if you want to start monitoring the sensors, use “value=yes”. If
+you want to stop use “value=no”.</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>                {&quot;status&quot;:&quot;Failure&quot;,
+&quot;code&quot;: 15, &quot;message&quot;: &quot;Bad sensor number&quot;}</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal>To start monitoring sensors 1, 23 and 35:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>Node/&lt;<i>node number</i>&gt;/MonitoredSensors</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d “list=[1, 23, 35]&amp;value=yes”</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<p class=MsoNormal>To stop monitoring sensors 1, 23 and 35:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>Node/&lt;<i>node number</i>&gt;/MonitoredSensors</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d “list=[1, 23, 35]&amp;value=no”</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+
+<h3><a name="_Toc419187933">Health Details</a></h3>
+
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the list of sensor that are part of the health aggregation for a node.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/HealthDetails</p>
+
+<p class=MsoNormal>Return: The health detail of the node.</p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;sensorInfo&quot;: {&quot;number&quot;: &quot;27&quot;,
+&quot;name&quot;: &quot;Health Status&quot;, &quot;type&quot;: &quot;Platform
+Alert&quot;, &quot;unit&quot;: &quot;&quot;, &quot;analog&quot;:
+&quot;no&quot;, &quot;monitored&quot;: &quot;no&quot;, &quot;aggregation&quot;:
+&quot;yes&quot;, &quot;value&quot;: &quot;0x8002&quot;},
+&quot;sensorHealth&quot;: &quot;Healthy&quot;, &quot;aggregationDetails&quot;:
+[{&quot;name&quot;: &quot;Temp Brd Inlet&quot;, &quot;number&quot;:
+&quot;4&quot;, &quot;value&quot;: &quot;28.00&quot;, &quot;health&quot;: &quot;Healthy&quot;},
+{&quot;name&quot;: &quot;Temp Brd Outlet&quot;, &quot;number&quot;:
+&quot;5&quot;, &quot;value&quot;: &quot;30.00&quot;, &quot;health&quot;:
+&quot;Healthy&quot;}, {&quot;name&quot;: &quot;Temp BMC&quot;, &quot;number&quot;:
+&quot;7&quot;, &quot;value&quot;: &quot;37.00&quot;, &quot;health&quot;:
+&quot;Healthy&quot;}, {&quot;name&quot;: &quot;Temp CPU 1&quot;,
+&quot;number&quot;: &quot;8&quot;, &quot;value&quot;: &quot;0.00&quot;,
+&quot;health&quot;: &quot;Healthy&quot;}, {&quot;name&quot;: &quot;Temp CPU
+2&quot;, &quot;number&quot;: &quot;9&quot;, &quot;value&quot;:
+&quot;37.00&quot;, &quot;health&quot;: &quot;Healthy&quot;}]}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187913">Store</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the stored information for the node</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Store</p>
+<p class=MsoNormal>Return: Success: JSON object representing the Store</p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;number&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Node 1&quot;, &quot;health&quot;: &quot;Green&quot;,
+&quot;fruInfo&quot;: {&quot;mfgDate&quot;: &quot;Tue Nov  3 16:29:00 2015&quot;, &quot;boardMfg&quot;:
+&quot;Kontron&quot;, &quot;boardProductName&quot;: &quot;4003&quot;, &quot;boardProductPart&quot;:
+&quot;T4003###############&quot;, &quot;boardSerialNumber&quot;: &quot;0000000000&quot;},&quot;hotswapStatus&quot;:
+{&quot;state&quot;: &quot;M4&quot;, &quot;text&quot;: &quot;Active&quot;}, &quot;type&quot;: &quot;node&quot;,
+&quot;versions&quot; : [{ &quot;name&quot; : &quot;BMC&quot;, &quot;major&quot; : &quot;3&quot;, &quot;minor&quot;:
+&quot;33&quot;},{ &quot;name&quot; : &quot;FPGA&quot;, &quot;major&quot; : &quot;1&quot;, &quot;minor&quot;:
+&quot;02&quot;},{ &quot;name&quot; : &quot;BIOS&quot;, &quot;major&quot; : &quot;0&quot;, &quot;minor&quot; :
+&quot;42&quot;}],&quot;model&quot;: &quot;MSP8000&quot;, &quot;isUpdating&quot; : &quot;0&quot;,
+&quot;managementIP&quot;: &quot;172.16.143.101&quot;, &quot;managementMAC&quot;: &quot;00:a0:a5:7c:ec:1a&quot;,
+&quot;components&quot;: [{ &quot;description&quot;: &quot;Payload1       &quot;, &quot;number&quot;:
+&quot;1&quot;, &quot;hotswapStatus&quot;:{&quot;state&quot;: &quot;M4&quot;, &quot;text&quot;: &quot;Active&quot;},
+&quot;networkInterfaces&quot;: [{ &quot;id&quot;: &quot;1&quot;, &quot;backplane&quot;: &quot;Base1&quot;,
+&quot;ip&quot;: [&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;], &quot;gateway&quot;:
+[&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;], &quot;netmask&quot;: &quot;0&quot;,
+&quot;ipSource&quot;: &quot;static&quot;, &quot;mac&quot;: &quot;00:a0:a5:7c:ec:18&quot;}, { &quot;id&quot;:
+&quot;2&quot;, &quot;backplane&quot;: &quot;Base2&quot;, &quot;ip&quot;: [&quot;0&quot;, &quot;0&quot;,
+&quot;0&quot;, &quot;0&quot;], &quot;gateway&quot;: [&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;],
+&quot;netmask&quot;: &quot;0&quot;, &quot;ipSource&quot;: &quot;static&quot;, &quot;mac&quot;: &quot;00:a0:a5:7c:ec:19&quot;},
+{ &quot;id&quot;: &quot;3&quot;, &quot;backplane&quot;: &quot;Fabric1&quot;, &quot;ip&quot;: [&quot;0&quot;,
+&quot;0&quot;, &quot;0&quot;, &quot;0&quot;], &quot;gateway&quot;: [&quot;0&quot;, &quot;0&quot;, &quot;0&quot;,
+&quot;0&quot;], &quot;netmask&quot;: &quot;0&quot;, &quot;ipSource&quot;: &quot;static&quot;, &quot;mac&quot;:
+&quot;00:a0:a5:7c:ec:16&quot;}, { &quot;id&quot;: &quot;4&quot;, &quot;backplane&quot;: &quot;Fabric2&quot;,
+&quot;ip&quot;: [&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;], &quot;gateway&quot;:
+[&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;], &quot;netmask&quot;: &quot;0&quot;,
+&quot;ipSource&quot;: &quot;static&quot;, &quot;mac&quot;: &quot;00:a0:a5:7c:ec:17&quot;}]}]}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187914">Payloads</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the stored information for the payloads on the node</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Payloads</p>
+<p class=MsoNormal>Return: Success: JSON object representing the payloads</p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>With a MSP8000 node:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;payloads&quot;: [{ &quot;number&quot;: &quot;1&quot;, &quot;description&quot;: &quot;Payload1       &quot;}]}
+</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>With a MSP8020 node:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;payloads&quot;: [{ &quot;number&quot;: &quot;1&quot;, &quot;description&quot;: &quot;Payload1       &quot;},
+{ &quot;number&quot;: &quot;2&quot;, &quot;description&quot;: &quot;Payload2       &quot;}]}
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187915">Alarm</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the node current alarm information: current severity and sensors list that triggered the alarm</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Alarm</p>
+<p class=MsoNormal>Return: JSON object with the alarm level and components in alarm of the platform</p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>Without alarm:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;alarmlevel&quot;: &quot;None&quot;, &quot;sensors&quot;:[]}
+</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>With an alarm:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;alarmlevel&quot;: &quot;Major&quot;, &quot;sensors&quot;:[{&quot;sensorNumber&quot;:&quot;1&quot;,
+&quot;text&quot;:&quot;Major Fault : Sensor 'Temp Inlet' is at 23.00&quot;}]}
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187916">LED Identify</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the LED Identify state</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/LED/Identify</p>
+<p class=MsoNormal>Return: JSON object with the Node LED state &quot;on&quot;/&quot;off&quot;.</p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;status&quot;: &quot;off&quot;}
+</span></p>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Turn
+on/off the Node LED Identify state.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/LED/Identify</p>
+<p class=MsoNormal>Parameters:</p>
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>command:
+The state to apply to the LED: &quot;on&quot; or &quot;off&quot;</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: </p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command:</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;</i>
+http://<i>&lt;platformIP&gt;</i>:9090/v3/Platform/&lt;<i>platform number&gt;</i>/Node/&lt;<i>node number&gt;</i>/LED/Identify -d &quot;command=on&quot;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;
+background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187934">Payload</a></h1>
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc419187935">Provision KVM</a></h3>
+</div>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Apply
+the configuration of the “network” (see <span lang=EN-US><a href="#_Network"><span
+lang=EN-CA>Network</span></a></span>) to the KVM of the payload. Only applies
+to “MSP8020” nodes.</p>
+
+<p class=MsoNormal>Call: <span style='font-size:10.0pt;line-height:120%'>/v3/Platform/&lt;<i>platform
+number</i>&gt;/Node/&lt;<i>node number</i>&gt;/Payload/&lt;<i>payload number</i>&gt;/ProvisionKVM</span></p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 1,
+&quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 3,
+&quot;message&quot;: &quot;Invalid payload ID&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 22,
+&quot;message&quot;: &quot;Model does not support KVM provisionning&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc419187937">Power Command</a></h3>
+</div>
+
+<h5>POST</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Send
+a power command to a node's specific payload.</p>
+
+<p class=MsoNormal>Call: <span style='font-size:10.0pt;line-height:120%'>/v3/Platform/&lt;<i>platform
+number</i>&gt;/Node/&lt;<i>node number</i>&gt;/Payload/&lt;<i>payload number</i>&gt;/PowerCommand</span></p>
+
+<p class=MsoNormal>Parameters:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>command:
+The command to send to the node. Valid commands:</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>activate</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>deactivate</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>reset</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal>            Success: </p>
+
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 1,
+&quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 2,
+&quot;message&quot;: &quot;Target Node is not present&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 3,
+&quot;message&quot;: &quot;Invalid payload ID&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 4,
+&quot;message&quot;: &quot;Bad parameters&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:left'><span style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>Node/&lt;<i>node number</i>&gt;/Payload/&lt;payload_number&gt;/</span></p>
+
+<p class=MsoNormal align=left style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:left;text-indent:36.0pt'><span style='font-size:9.0pt;line-height:
+120%'>PowerCommand --user <i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d
+“payload=2&amp;command=deactivate”</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187917">Nics</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the NICs information for the payload</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Payload/&lt;<i>payload number</i>&gt;/Nics</p>
+<p class=MsoNormal>Return: JSON object with the NICs list for the payload</p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>With a MSP8000 node, on payload 1:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;Nics&quot;: [{ &quot;id&quot;: &quot;1&quot;, &quot;backplane&quot;: &quot;Base1&quot;},
+{ &quot;id&quot;: &quot;2&quot;, &quot;backplane&quot;: &quot;Base2&quot;}, { &quot;id&quot;: &quot;3&quot;,
+&quot;backplane&quot;: &quot;Fabric1&quot;}, { &quot;id&quot;: &quot;4&quot;, &quot;backplane&quot;: &quot;Fabric2&quot;}]}
+</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>With a MSP8020 node, on payload 1:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;Nics&quot;: [{ &quot;id&quot;: &quot;1&quot;, &quot;backplane&quot;: &quot;Base2&quot;},
+{ &quot;id&quot;: &quot;2&quot;, &quot;backplane&quot;: &quot;Fabric1&quot;}]}
+</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>With a MSP8020 node, on payload 2:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;Nics&quot;: [{ &quot;id&quot;: &quot;1&quot;, &quot;backplane&quot;: &quot;Base1&quot;},
+{ &quot;id&quot;: &quot;2&quot;, &quot;backplane&quot;: &quot;Fabric2&quot;}]}
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187918">Description</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the description of the payload</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Payload/&lt;<i>payload number</i>&gt;/Description</p>
+<p class=MsoNormal>Return: JSON object with the payload description</p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;number&quot;: &quot;1&quot;, &quot;description&quot;: &quot;UDHM&quot;}
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Set
+the description of the payload</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Payload/&lt;<i>payload number</i>&gt;/Description</p>
+<p class=MsoNormal>Parameters:</p>
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>text:
+Description of the payload. Limited to a maximum of 15 characters.</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: </p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+<p class=MsoNormal>            Possible errors: </p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Failure&quot;, &quot;code&quot;: 2, &quot;message&quot;: &quot;Target Node is not present&quot; }</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Failure&quot;, &quot;code&quot;: 1, &quot;message&quot;: &quot;&quot; }</span></p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Failure&quot;, &quot;code&quot;: 53, &quot;message&quot;: &quot;Maximum length of server
+description is 15 characters.&quot; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command:</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;</i>
+http://<i>&lt;platformIP&gt;</i>:9090/v3/Platform/&lt;<i>platform number&gt;</i>/Node/&lt;<i>node number&gt;</i>/Payload/&lt;<i>payload number&gt;</i>/Description
+-d &quot;text=&lt;<i>description&gt;</i>&quot;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc519187919">Network Interface</a></h1>
+</div>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187920"></a><a name="_Network"></a>Network</h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Obtain
+all the information of this Network Interface</p>
+<p class=MsoNormal>Call: <span style='font-size:10.0pt;line-height:120%'>/v3/Platform/&lt;<i>platform
+number</i>&gt;/Node/&lt;<i>node number</i>&gt;/Payload/&lt;<i>payload number</i>&gt;/Nic/&lt;<i>nic
+number</i>&gt;/Network</span></p>
+<p class=MsoNormal>Return:</p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{ &quot;id&quot;: &quot;1&quot;, &quot;backplane&quot;: &quot;Base2&quot;, &quot;ip&quot;: [&quot;0&quot;,
+&quot;0&quot;, &quot;0&quot;, &quot;0&quot;], &quot;gateway&quot;: [&quot;0&quot;, &quot;0&quot;, &quot;0&quot;,
+&quot;0&quot;], &quot;netmask&quot;: &quot;0&quot;, &quot;ipSource&quot;: &quot;static&quot;, &quot;mac&quot;:
+&quot;00:a0:a5:7f:fa:ea&quot;}
+</span></p>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Associate
+network settings to the network interface of a payload. These settings are used by the
+&quot;ProvisionKVM&quot; API call.</p>
+<p class=MsoNormal>Call: <span style='font-size:10.0pt;line-height:120%'>/v3/Platform/&lt;<i>platform
+number</i>&gt;/Node/&lt;<i>node number</i>&gt;/Payload/&lt;<i>payload number</i>&gt;/Nic/&lt;<i>nic
+number</i>&gt;/Network</span></p>
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>This setting can be used to
+remember an IP address configured on a server without actually configuring it.</p>
+
+<p class=MsoNormal>Parameters:</p>
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ip:
+The management IP</p>
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>netmask:
+The CIDR format (0 to 32)</p>
+<p class=MsoListParagraphCxSpMiddle style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>ipsource
+(optional): &quot;static&quot; or &quot;dhcp&quot;</p>
+<p class=MsoListParagraphCxSpLast style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>gateway
+(optional): The gateway IP address</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: </p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt'>Possible errors: </p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 2,
+&quot;message&quot;: &quot;Target node is not present&quot; }</span></p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 3,
+&quot;message&quot;: &quot;Invalid payload ID&quot; }</span></p>
+<p class=MsoNormal style='margin-left:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Failure&quot;, &quot;code&quot;: 4,
+&quot;message&quot;: &quot;Bad parameters&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3/Platform/<i>&lt;platform
+number&gt;</i>/Node/&lt;<i>node number</i>&gt;/Payload/&lt;<i>payload number</i>&gt;/Nic/&lt;<i>nic
+number</i>&gt;/Network</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d &quot;ip=1.1.1.1&amp;ipsource=static&amp;netmask=27&quot;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187938">Sensor</a></h1>
+</div>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc419187939">Monitor</a></h3>
+</div>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Used
+to add or remove a sensor to the list of Monitored Sensors.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Sensor/&lt;<i>sensor number</i>&gt;/Monitor</p>
+
+<p class=MsoNormal>Parameters: </p>
+
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>value:
+monitor this sensor, “yes” or “no”</p>
+
+<p class=MsoNormal>Return:</p>
+
+<p class=MsoNormal style='text-indent:36.0pt'> <span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;: &quot;Success&quot;, &quot;code&quot;:
+0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl http://<i>&lt;platformIp&gt;</i>:9090/v3<i>/Platform/&lt;platform
+number&gt;/</i>Node/&lt;<i>node number</i>&gt;/Sensor&lt;<i>sensor number</i>&gt;/Monitor</span></p>
+
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>                                --user
+<i>&lt;user</i>&gt;:&lt;<i>token</i>&gt; -d “value=yes”</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc419187940">Details</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Obtain
+all the information of this sensor and its value (if monitored to prevent
+polling).</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Node/&lt;<i>node
+number</i>&gt;/Sensor/&lt;<i>sensor number</i>&gt;/Details</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>{&quot;number&quot;:
+&quot;1&quot;, &quot;name&quot;: &quot;FRU1 Hot Swap&quot;, &quot;type&quot;:
+&quot;OEM Reserved&quot;, &quot;unit&quot;: &quot;&quot;, &quot;analog&quot;:
+&quot;no&quot;, &quot;monitored&quot;: &quot;no&quot;, &quot;aggregation&quot;:
+&quot;no&quot;, &quot;value&quot;: &quot;0x8002&quot;}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc519187921">System Event Log (SEL)</a></h1>
+</div>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Before using any of the SEL calls
+for the first time after a system upgrade to Version 32.10, you must wait at least 15 minutes for
+the database to retrieve all events.</p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187922">Events</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Retrieve
+a number of events from the database.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SEL/Events</p>
+<p class=MsoNormal>Parameters: </p>
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>offset:
+Number of records to skip. Optional, defaults to 0.</p>
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>limit:
+Maximum number of records to retrieve. Optional, defaults to 100, maximum value is 1000.</p>
+
+<p class=MsoNormal>Return: JSON object of the following format.</p>
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>numRecords:
+The total number of records present in the SEL database.</p>
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>records:
+The list of events. Events contain:</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>recordId:
+The ID of the record in the databse</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>timestamp:
+The time at which the event occurred</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>generatorId:
+The ID of the node the event was generated from</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>sensorNumber:
+The sensor number</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>sensorName:
+The sensor name</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>sensorType:
+The sensor type as defined in the IPMI specification</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>eventDirection:
+The assertion or de-assertion (when applicable)</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>eventData1, 2 and 3:
+Any extra information from the event. This can be used if in depth analysis is required</p>
+<p class=MsoListParagraph style='margin-left:110.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>eventDescription:
+The text description of the event</p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>
+{&quot;numRecords&quot;: 639, &quot;records&quot;: [{&quot;recordId&quot;: 116, &quot;timestamp&quot;:
+&quot;2015-01-29T05:52:44Z&quot;, &quot;generatorId&quot;: &quot;Node1&quot;, &quot;sensorNumber&quot;: 40,
+&quot;sensorName&quot;: &quot;ACPI State&quot;, &quot;sensorType&quot;: &quot;System ACPI Power State&quot;,
+&quot;eventDirection&quot;: &quot;Asserted&quot;, &quot;eventData1&quot;: 0, &quot;eventData2&quot;: 255,
+&quot;eventData3&quot;: 255, &quot;eventDescription&quot;: &quot;&quot;}]}
+</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl -G --user <i>&lt;user</i>&gt;:&lt;<i>token</i>&gt;
+http://<i>&lt;platformIp&gt;</i>:9090/v3/Platform/<i>&lt;platform number&gt;</i>/SEL/Events
+-d &quot;offset=116&amp;limit=1&quot;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187923">Clear</a></h3>
+</div>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Clear
+the SEL database owned by the System Manager as well as the IPMI SEL.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SEL/Clear</p>
+
+<p class=MsoNormal>Return:</p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>
+{&quot;status&quot;:&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot;}
+</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user</i>&gt;:&lt;<i>token</i>&gt;
+http://<i>&lt;platformIp&gt;</i>:9090/v3/Platform/<i>&lt;platform number&gt;</i>/SEL/Clear</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187924">Settings</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the System Manager's SEL settings.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SEL/Settings</p>
+
+<p class=MsoNormal>Return: JSON object of the following format.</p>
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>pollingEnabled:
+To enable or disable the IPMI event collecting feature.</p>
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>recordsRetention:
+The maximum number of events kept by database</p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>
+{&quot;pollingEnabled&quot;: true, &quot;recordsRetention&quot;: 10000}
+</span></p>
+
+<h5>Put</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Modify
+the System Manager's SEL settings.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SEL/Settings</p>
+<p class=MsoNormal>Parameters:</p>
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>pollingEnabled:
+Enable or disable capturing new events in the database, &quot;true&quot; or &quot;false&quot;.
+If this setting is disabled then enabled, events that were missed will be added to the database.</p>
+<p class=MsoListParagraph style='margin-left:90.0pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>recordsRetention:
+Maximum number of events kept in the database. Old records are evicted in a first-in first-out manner.
+Defaults: 10000, minimum: 5000, maximum: 50000.</p>
+
+<p class=MsoNormal>Return:</p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>
+{&quot;status&quot;:&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot;}
+</span></p>
+<p class=MsoNormal>Possible errors:</p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>
+{&quot;status&quot;:&quot;Failure&quot;, &quot;code&quot;: 4, &quot;message&quot;:
+&quot;Bad parameters&quot;}</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>
+{&quot;status&quot;:&quot;Failure&quot;, &quot;code&quot;: 47, &quot;message&quot;:
+&quot;Database is locked&quot;}</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>
+{&quot;status&quot;:&quot;Failure&quot;, &quot;code&quot;: 51, &quot;message&quot;:
+&quot;Database Error&quot;}</span></p>
+
+<p class=MsoNormal>Example of cURL command&nbsp;:</p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user</i>&gt;:&lt;<i>token</i>&gt;
+http://<i>&lt;platformIp&gt;</i>:9090/v3/Platform/<i>&lt;platform number&gt;</i>/SEL/Settings
+-X PUT -d &quot;pollingEnabled=true&recordsRetention=10000&quot;</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187925">CSV</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Retrieve
+all of the events contained in the database in a single CSV file format.
+Compatible with Microsoft Excel&reg; for further event analysis.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/SEL/Csv</p>
+
+<p class=MsoNormal>Return: CSV format file</p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user</i>&gt;:&lt;<i>token</i>&gt;
+http://<i>&lt;platformIp&gt;</i>:9090/v3/Platform/<i>&lt;platform number&gt;</i>/SEL/Csv</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187941">PSU</a></h1>
+</div>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc419187942">Details</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Obtain
+all the information of this sensor and the values of its sensors.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/PSU/&lt;<i>psu
+number</i>&gt;/Details</p>
+
+<p class=MsoNormal>Return: JSON object of the following format:</p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>{&quot;id&quot;:
+&quot;PSU1&quot;, &quot;number&quot;: &quot;1&quot;, &quot;name&quot;:
+&quot;Power Supply 1&quot;, &quot;type&quot;: &quot;psu&quot;,
+&quot;hotswapStatus&quot;:{&quot;state&quot;: &quot;M4&quot;, &quot;text&quot;:
+&quot;Active&quot;},&quot;tempInlet&quot;: &quot;24.00&quot;,
+&quot;tempOutlet&quot;: &quot;32.00&quot;, &quot;vIn&quot;: &quot;119.00&quot;,
+&quot;powerOut&quot;: &quot;48&quot;, &quot;powerScale&quot;:
+&quot;1400&quot;,&quot;peakConsumption&quot;: &quot;104&quot;,
+&quot;averageConsumption&quot;: &quot;45&quot;}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc419187943">Reset Stats</a></h3>
+</div>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Reset
+the average and peak power consumption statistics for the PSU specified.</p>
+
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/PSU/&lt;<i>psu
+number</i>&gt;/ResetStats</p>
+
+<p class=MsoNormal>Return: </p>
+
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;
+line-height:120%'>{&quot;status&quot;:&quot;Success&quot;, &quot;code&quot;: 0,
+&quot;message&quot;: &quot;&quot;}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187926">Alarm</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the Power Supply current alarm information: current severity and sensors list that triggered the alarm.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/PSU/&lt;<i>psu number</i>&gt;/Alarm</p>
+<p class=MsoNormal>Return: JSON object with the alarm level and sensors informations.</p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+Without alarm: {&quot;alarmlevel&quot;: &quot;None&quot;}</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+With an alarm: {&quot;alarmlevel&quot;: &quot;Fault&quot;}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc519187927">Fans</a></h1>
+</div>
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187928">LED Identify</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the LED Identify state</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Fan/&lt;<i>fan
+number</i>&gt;/LED/Identify</p>
+<p class=MsoNormal>Return: JSON object with the Node LED state &quot;on&quot;/&quot;off&quot;.</p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+{&quot;status&quot;: &quot;off&quot;}
+</span></p>
+
+<h5>Post</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Turn
+on/off the Node LED Identify state.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Fan/&lt;<i>fan
+number</i>&gt;/LED/Identify</p>
+<p class=MsoNormal>Parameters:</p>
+<p class=MsoListParagraphCxSpFirst style='margin-left:49.5pt;text-indent:-18.0pt'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>command:
+The state to apply to the LED: &quot;on&quot; or &quot;off&quot;</p>
+
+<p class=MsoNormal>Return: </p>
+<p class=MsoNormal>            Success: </p>
+<p class=MsoNormal>            <span style='font-size:9.0pt;line-height:120%'>{&quot;status&quot;:
+&quot;Success&quot;, &quot;code&quot;: 0, &quot;message&quot;: &quot;&quot; }</span></p>
+
+<p class=MsoNormal><span lang=EN-US>Example cURL command:</span></p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>curl --user <i>&lt;user&gt;:&lt;token&gt;</i>
+http://<i>&lt;platformIP&gt;</i>:9090/v3/Platform/&lt;<i>platform number&gt;</i>/Fan/&lt;<i>fan number&gt;</i>/LED/Identify -d &quot;command=on&quot;
+</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:none;border-bottom:solid windowtext 1.0pt;padding:0cm 0cm 1.0pt 0cm'>
+<h3><a name="_Toc519187929">Alarm</a></h3>
+</div>
+
+<h5>Get</h5>
+
+<p class=MsoNormal style='margin-left:67.5pt;text-indent:-67.5pt'>Description: Get
+the Fan current alarm information: current severity and components in alarm of the platform.</p>
+<p class=MsoNormal>Call: /v3/Platform/&lt;<i>platform number</i>&gt;/Fan/&lt;<i>fan number</i>&gt;/Alarm</p>
+<p class=MsoNormal>Return: JSON object with the alarm level and components in alarm of the platform.</p>
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>i.e:</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+Without alarm: {&quot;alarmlevel&quot;: &quot;None&quot;}</span></p>
+<p class=MsoNormal style='text-indent:36.0pt'><span style='font-size:9.0pt;line-height:120%'>
+With an alarm: {&quot;alarmlevel&quot;: &quot;Fault&quot;}</span></p>
+
+<p class=MsoNormal><span style='font-size:9.0pt;line-height:120%'>&nbsp;</span></p>
+
+
+<div style='border:solid windowtext 1.0pt;padding:1.0pt 4.0pt 1.0pt 4.0pt;background:#004F91'>
+<h1 style='background:#004F91;border:none;padding:0cm'><a name="_Toc419187944">API
+Error Codes and Messages</a></h1>
+</div>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>{“status”:”Success”, “code”: 0, “message”: ““}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 1, “message”: ““}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 2, “message”: “Target Node is
+not present”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 3, “message”: “Invalid Payload
+ID”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 4, “message”: “Bad parameters”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 5, “message”: “Internal Error”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 6, “message”: “Invalid Slot
+Number”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 7, “message”: “Invalid Speed
+Setting”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 8, “message”: “Error sending &lt;FILE_NAME&gt;“}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 9, “message”: “Bad resource for
+platform”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 10, “message”: “Bad request for
+platform handler”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 11, “message”: “System not
+ready yet”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 12, “message”: “Invalid API
+call”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 13, “message”: “Upgrade in
+progress”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 14, “message”: “Start Upgrade
+fail”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 15, “message”: “Bad sensor
+number”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 16, “message”: “Failed to set
+platform number”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 17, “message”: “Failed to set
+IP table”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 18, “message”: “Non remote
+platform went through stack handler”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 19, “message”: “Error sending
+log Zip file”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 20, “message”: “Missing
+parameter”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 21, “message”: “Invalid file:
+Zip only”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 22, “message”: “Model does not
+support KVM provisionning”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 23, “message”: “Invalid
+password for user”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 24, “message”: “Cannot delete
+admin user”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 25, “message”: “User does not
+exist”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 26, “message”: “User already
+exists”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 27, “message”: “Invalid token
+for user”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 28, “message”: “Invalid access
+level for API call”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 29, “message”: “Basic HTTP
+Authentication required”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 30, “message”: “No token for
+user. Authenticate at /Auth API”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 31, “message”: “Token has
+expired. Reauthenticate at /Auth API”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 32, “message”: “Invalid format
+for website configuration”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 33, “message”: “Upload already
+in progress”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 34, “message”: “User only
+allowed to modify his password”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 35, “message”: “API is not
+supported on this Hub Model”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 36, “message”: “Failed to set
+management configuration.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 37, “message”: “The password
+format must have: a length of exactly 8 characters, at least 1 lower case and 1
+upper case letter, uses 1 or more number, uses 1 or more special character.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 38, “message”: “No bundle was
+found. Please upload a valid bundle before upgrading.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 39, “message”: “Unhandled
+server-side exception. See logs for details.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 40, “message”: “Cannot create
+more than one IPMI user”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 41, “message”: “IPMI user
+cannot be deleted”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 42, “message”: “This management
+server is not currently Active. Please connect to the Active management server.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 43, “message”: “Certificate
+upload already in progress.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 44, “message”: “Failed to write
+uploaded file.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 45, “message”: “Uploaded .key
+file is protected by passphrase.\n Please remove and re-upload.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 46, “message”: “Missing file.
+Must upload at least 'key' and 'cert' files.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 47, “message”: “Database is
+locked.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 48, “message”: “Invalid
+username. Cannot be empty and maximum 20 apha-numeric characters.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 49, “message”: “Invalid password.
+Cannot be empty or contain ”, \', \ and maximum 20 characters.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 50, “message”: “Invalid role
+selected for user.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 51, “message”: “Database Error.”}</p>
+
+<p class=MsoNormal>{“status”:”Failure”, “code”: 52, “message”: “You can only
+modify the password of the IPMI user.”}</p>
+
+</div>
+
+</body>
+
+</html>

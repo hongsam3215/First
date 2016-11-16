@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+		<title>Untitled Document</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="out.js"></script>
+		<script type="text/javascript">
+            
+		</script>
+		<style>
+  
+            
+            .onoffswitch {
+                position: relative; width: 90px;
+                -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+            }
+            .onoffswitch-checkbox {
+                display: none;
+            }
+            .onoffswitch-label {
+                display: block; overflow: hidden; cursor: pointer;
+                border: 2px solid #999999; border-radius: 20px;
+            }
+            .onoffswitch-inner {
+                display: block; width: 200%; margin-left: -100%;
+                transition: margin 0.3s ease-in 0s;
+            }
+            .onoffswitch-inner:before, .onoffswitch-inner:after {
+                display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+                font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+                box-sizing: border-box;
+            }
+            .onoffswitch-inner:before {
+                content: "ON";
+                padding-left: 10px;
+                background-color: #34A7C1; color: #FFFFFF;
+            }
+            .onoffswitch-inner:after {
+                content: "OFF";
+                padding-right: 10px;
+                background-color: #EEEEEE; color: #999999;
+                text-align: right;
+            }
+            .onoffswitch-switch {
+                display: block; width: 18px; margin: 6px;
+                background: #FFFFFF;
+                position: absolute; top: 0; bottom: 0;
+                right: 56px;
+                border: 2px solid #999999; border-radius: 20px;
+                transition: all 0.3s ease-in 0s; 
+            }
+            .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+                margin-left: 0px;
+            }
+            .onoffswitch-checkbox:checked +  .onoffswitch-label .onoffswitch-switch   {
+                right: 0px; 
+            }
+		    
+     .amount {color:red;}
+            .amount::before {content:"111 "; color:blue;}
+            .amount::after {content:" 萬元"; color:blue;}
+
+		</style>
+    <div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1111" checked>
+        <label class="onoffswitch-label" for="myonoffswitch1111">
+            <span class="onoffswitch-inner"></span>
+             <span class="onoffswitch-switch"></span>
+        </label>
+    </div>
+    
+    <strong class="amount"><span>$ </span>700<span> 萬元</span></strong>
+		
+	</body>
+</html>

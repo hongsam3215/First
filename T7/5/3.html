@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  <meta charset="UTF-8">
+
+
+<script src="js/jquery-3.1.1.js"></script>
+<script src="js/d3.v3.min.js"></script>
+<script src="js/epoch.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/epoch.min.css">
+
+</head>
+
+  
+  <body>
+  
+        <div id="test-3" class="test">
+            <h2>3. Stream Transition</h2>
+            <p>Display value of 0% and transition to a random value every second when the button is pressed.</p>
+            <div class="epoch gauge-small"></div>
+            <p><button>Play</button></p>
+        </div>
+        
+        
+       <div id="lineChart" class="epoch" style="width: 100%; height: 100px;border:solid 1px #C0C0C0;"></div> 
+        
+        <script>
+        $(function() {
+            var chart = $('#test-3 .epoch').epoch({
+                    type: 'time.gauge',
+                    value: 0.0
+                }),
+                playing = false,
+                interval = null;
+
+            $('#test-3 button').on('click', function(e) {
+                if (interval === null) {
+                    interval = setInterval(function() {
+                        chart.update(Math.random());
+                    }, 1000);
+                    chart.update(Math.random());
+                    $(e.target).text('Pause');
+                }
+                else {
+                    clearInterval(interval);
+                    interval = null;
+                    $(e.target).text('Play');
+                }
+            });
+        });
+			
+			
+			
+			
+	var RealTimeData = function(layers) {
+        this.layers = layers;
+        this.timestamp = ((new Date()).getTime() / 1000)|0;
+    };
+
+    RealTimeData.prototype.rand = function() {
+        return parseInt(Math.random() * 100) ;
+    };
+
+    RealTimeData.prototype.history = function(entries) {
+        if (typeof(entries) != 'number' || !entries) {
+            entries = 1;
+        }
+
+        var history = [];
+        for (var k = 0; k < this.layers; k++) {
+            history.push({ values: [] });
+        }
+
+        for (var i = 0; i < entries; i++) {
+            for (var j = 0; j < this.layers; j++) {
+                history[j].values.push({time: this.timestamp, y: this.rand()});
+            }
+            this.timestamp++;
+        }
+
+        return history;
+    };
+
+    RealTimeData.prototype.next = function() {
+        var entry = [];
+        for (var i = 0; i < this.layers; i++) {
+            entry.push({ time: this.timestamp, y: this.rand() });
+        }
+        this.timestamp++;
+        return entry;
+    }
+
+    window.RealTimeData = RealTimeData;
+
+
+	$(function(){
+
+	  var data = new RealTimeData(1);
+
+	var chart = $('#lineChart')
+	   .epoch({
+			type: 'time.line',
+			data: data.history(),
+			axes: ['left', 'bottom', 'right']
+		});
+
+		window.setInterval(function() { var x= data.next(); chart.push(x); }, 1000);
+		chart.push(data.next());
+
+
+	});
+	
+			
+			
+			
+        </script> 
+  </body>
+<script>
+
+
+//	
+//var lineChartData = [
+//  // First series
+//  {
+//    label: "Series 1",
+//    values: [ {time: 1370044800, y: 100}]
+//  }
+//
+////  // The second series
+////  {
+////    label: "Series 2",
+////    values: [ {time: 1370044800, y: 78}, {time: 1370044801, y: 98}, ... ]
+////  },
+//
+//];
+//	
+//
+//  $('#gaugeChart').epoch({
+//    type: 'time.gauge',
+//    value: 0.5
+//  });
+//	  
+//	  
+//  $('#lineChart').epoch({
+//    type: 'time.line',
+//    data: lineChartData
+//  });
+
+
+
+	
+	
+	
+</script>
+</html>

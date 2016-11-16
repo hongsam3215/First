@@ -1,0 +1,100 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery-3.1.1.js"></script>
+    
+    
+</head>
+
+<body>  
+
+<button id="ajax">ajax call</button>
+<!--<button id="json">json</button>-->
+
+<button id="ajax2">ajax2 call</button><br/>
+<!--<button id="json2">json2</button>-->
+
+<button id="post">post query </button>
+<button id="post2">post body </button>
+<script type="text/javascript">
+//    $('#json').click(function(){ 
+//      
+//         $.getJSON("http://localhost:3000/get",
+//         function(data) {
+////           		alert(data["Auth"]); 
+//                alert(data["version"]);        
+//          });   
+//    });
+
+    $('#ajax').click(function(){ 
+     
+         $.ajax({ 
+             type: "GET",
+             dataType: "json",
+             url: "http://localhost:3000/get",
+             success: function(data){  
+//				alert(data["Auth"]); 
+                alert(data["version"]); 
+				   
+             }
+         });
+    });
+//    $('#json2').click(function(){ 
+//      
+//         $.getJSON("http://localhost:3000/getName",
+//         function(data) {
+//           		alert(data["myName"]); 
+//                      
+//          });   
+//    });
+
+    $('#ajax2').click(function(){ 
+     
+         $.ajax({ 
+             type: "GET",
+             dataType: "json",
+             url: "http://localhost:3000/getName",
+             success: function(data){  
+				alert(data["myName"]); 	   
+             }
+         });
+    });
+	$('#post').click(function(){ 
+     
+         $.ajax({ 
+             type: "POST",
+             dataType: "json",
+//			 data: { id : 1 , field2 : 2 , field3 : 3 },
+//			 data: 'field1=data1&field2=data2&field3=data3',
+             url: "http://localhost:3000/create?id=PostTest",
+
+         });
+    });
+	$('#post2').click(function(){ 
+     
+		var data = {};
+		data.title = "testAjaxPost";
+		data.message = "SuccessTest";
+
+		$.ajax({
+			type: "POST",
+            dataType: "json",
+			data: JSON.stringify(data),
+            url: "http://localhost:3000/create2",						
+			success: function(data) {
+				console.log('success');
+				console.log(JSON.stringify(data));
+			}
+		});
+		
+	
+
+    });	
+	
+//	data: { field1 : data1 , field2 : data2 , field3 : data3 },
+</script>
+
+
+
+</body>
+
+</html>

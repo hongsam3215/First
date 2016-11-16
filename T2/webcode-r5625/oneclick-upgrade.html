@@ -1,0 +1,211 @@
+
+<!doctype html>
+<html id="en-CA" lang="en" class="no-js" data-kafe-page="page-oneclick-upgrade">
+<head>
+	<meta charset="utf-8">
+	<title>Oneclick-upgrade</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="cleartype" content="on">
+
+	<meta name="viewport" content="width=1024">
+
+        <link rel="shortcut icon"    href="images/favicon.ico" data-behavior="favicon">
+	<link rel="apple-touch-icon" href="images/touch-icon-152.png" sizes="152x152" >
+    <link rel="resource" type="application/l10n" href="locales/locales.ini">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.migrate.min.js"></script>
+    <script src="js/jscolor/jscolor.js"></script>
+	<script>window.kafejQuery = window.jQuery.noConflict()</script>
+	
+	<link rel="stylesheet" href="css/core.css">
+	<link rel="stylesheet" href="css/theme.css">
+
+	<script src="js/webfont.js"></script>
+	<script src="js/core.js"></script>
+
+	<!-- nwayo 1.0.0a (c) 2014 Absolunet -->
+</head>
+<body class="page-oneclick-upgrade" data-context="page-oneclick-upgrade">
+	
+	<div class="page-height">
+		
+		
+		<header class="page-header" data-context="page-header">
+			<nav class="drawer-menu main-menu" data-behavior="drawer-menu">
+				<div class="handle" title="Main Menu" data-action="open"></div>
+				<div class="drawer">
+					
+					<ul data-behavior="main-menu-links">
+					    <li><a href="index.html">Dashboard</a></li>
+					    <li><a href="monitor.html">Monitor</a></li>
+					    <li><a href="system-event-log.html">System Event Log</a></li>
+					    <li><a href="oneclick-upgrade.html">OneClick Upgrade</a></li>
+					    <li><a href="remote-access.html">Remote Access</a></li>
+					    <li><a href="network-configuration.html">Network Configuration</a></li>
+					</ul>
+					
+				</div>
+			</nav>
+			<div class="logo">
+				<a href="index.html"><img src="" alt="" data-behavior="logo" /></a>
+			</div>
+			<nav class="drawer-menu user-menu" data-behavior="drawer-menu">
+				<div class="handle" title="Profile" data-action="open"></div>
+				<div class="drawer">
+					
+					<ul data-behavior="user-menu-links">
+						<li><a href="settings.html">Settings</a></li>
+						<li><a href="index.html" data-action="logout">Logout</a></li>
+					</ul>
+				</div>
+			</nav>
+			<nav class="drawer-menu help-menu" data-behavior="drawer-menu">
+				<div class="handle" title="Help" data-action="open"></div>
+				<div class="drawer">
+					
+					<ul data-behavior="help-menu-links">
+						<!-- <li><a href="#">Help</a></li> -->
+					    <li><a target="_blank" href="doc/System_Manager_API_v3.0_Detail.htm" >API Doc</a></li>
+						<li><a href="#" data-action="version">About</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="clearer"></div>
+		</header>
+
+		<div class="page-body">
+			<div class="page-intro">
+    
+    <ul class="breadcrumb" data-behavior="breadcrumb">
+    	<li class="root"><a href="index.html">Dashboard</a></li>
+    </ul>
+    <h1 class="base-title">OneClick Upgrade</h1>
+</div>
+
+<section class="page-content">
+    
+    <div class="upgrade-settings">
+        <div class="intro">Use this tool to upgrade the components in your multi-platform.<br />
+            Specify the components to upgrade in the <a href="#" data-action="open-advanced-settings">advanced settings</a>.</div>
+
+        <nav class="advanced-settings" data-behavior="advanced-settings-drawer">
+            <div class="handle" title="View Advanced Settings" data-action="open">View Advanced Settings</div>
+            <div class="drawer">
+                <div class="content">
+                    <h2 class="base-subtitle">Please select which components to upgrade:</h2>
+                    <form class="base-form" data-context="advanced-settings-form" data-behavior="base-form">
+                        <div class="group">
+                            <h3 class="base-subtitle">Upgrade specific platform or upgrade a specific component</h3>
+                            <div class="field">
+                                <label><em>All components for the selected platform(s) will be upgraded.</em></label>
+                                <select class="base-select with-search" name="platform" data-field="platform"></select>
+                            </div>
+                            <div class="field">
+                                <label><em>Only this component will be upgraded.</em></label>
+                                <select class="base-select with-search" name="component" data-field="component" data-placeholder="Select component...">
+                                        <option></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="group">
+                            <h3 class="base-subtitle">Choose a model to upgrade</h3>
+                            <div class="field">
+                                <label><em>Only components of that model will be upgraded.</em></label>
+                                <select class="base-select with-search" name="models" data-field="model"></select>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="clearer"></div>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            </br>
+            <div class="upload-versions" data-behavior="selected-component-versions">
+                <h3 class="base-subtitle">Current version info for <span data-value="name"></span></h3>
+                <ul data-value="versions"></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="upgrade-upload">
+        <h2 class="base-subtitle">Bundle file associated with this multi-platform group:</h2>
+        <div class="intro">The bundle must be a zipped file containing an XML descriptor file as well as multiple HPM upgrade files for each model that needs to be upgraded.<br />
+            Specify the bundle to use in the <a href="#" data-action="open-bundle-settings">bundle settings</a>.</div>
+
+        <nav class="bundle-settings" data-behavior="bundle-settings-drawer">
+            <div class="handle" title="View Bundle Settings" data-action="open">View Bundle Settings</div>
+            <div class="drawer">
+            <div class="content">
+                    <div class="group">
+                        <h2 class="base-subtitle">Please select the bundle:</h2>
+                        <form class="upload-files" data-context="upload-form" enctype="multipart/form-data">
+                            <input type="file" name="uploadedfile" data-field="filename" class="file required" />
+                            <button type="button" class="base-button" data-behavior="uploadButton">Change bundle file</button>
+                            <div class="loader"></div>
+                            <div data-behavior="upload-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="clearer"></div>
+    </div>
+    <div class="upgrade-commands" data-context="upgrade-commands">
+        <div class="intro">By default, no downgrades will be done and up-to-date nodes will not be updated.</br>
+            To upgrade regardless of installed versions click this option : </div></br>
+        <div class="content base-form" data-behavior="base-form">
+            <div class="field">
+                <input type="checkbox" id="forceUpgrade" name="forceUpgrade" data-action="force-upgrade" value="true"><label for="forceUpgrade">Force Upgrade</label>
+            </div>
+        </div>
+        <span data-context="upgrade-commands-start"><button class="base-button large arrow-right" data-action="start-upgrade">Start Upgrade</button></span>
+        <button class="base-button large colored" data-action="reset">Reset</button>
+    </div>
+
+    <div class="upgrade-status" data-behavior="upgrade-status"></div>
+
+</section>
+
+
+			
+			<div class="clearer"></div>
+		</div>
+
+		<div class="height-push"></div>
+	</div>
+
+	
+	<footer class="page-footer">
+		<nav class="links left">
+			
+			<ul data-behavior="main-menu-links">
+			    <li><a href="index.html">Dashboard</a></li>
+			    <li><a href="monitor.html">Monitor</a></li>
+			    <li><a href="system-event-log.html">System Event Log</a></li>
+			    <li><a href="oneclick-upgrade.html">OneClick Upgrade</a></li>
+			    <li><a href="remote-access.html">Remote Access</a></li>
+			    <li><a href="network-configuration.html">Network Configuration</a></li>
+			</ul>
+			
+		</nav>
+		<nav class="links right">
+			
+			<ul data-behavior="user-menu-links">
+				<li><a href="settings.html">Settings</a></li>
+				<li><a href="index.html" data-action="logout">Logout</a></li>
+			</ul>
+			
+			<ul data-behavior="help-menu-links">
+				<!-- <li><a href="#">Help</a></li> -->
+			    <li><a target="_blank" href="doc/System_Manager_API_v3.0_Detail.htm" >API Doc</a></li>
+				<li><a href="#" data-action="version">About</a></li>
+			</ul>
+		</nav>
+	</footer>
+
+</body>
+</html>

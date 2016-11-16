@@ -1,0 +1,261 @@
+
+<!doctype html>
+<html id="en-CA" lang="en" class="no-js" data-kafe-page="page-settings">
+<head>
+	<meta charset="utf-8">
+	<title>Settings</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="cleartype" content="on">
+
+	<meta name="viewport" content="width=1024">
+
+        <link rel="shortcut icon"    href="images/favicon.ico" data-behavior="favicon">
+	<link rel="apple-touch-icon" href="images/touch-icon-152.png" sizes="152x152" >
+    <link rel="resource" type="application/l10n" href="locales/locales.ini">
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.migrate.min.js"></script>
+    <script src="js/jscolor/jscolor.js"></script>
+	<script>window.kafejQuery = window.jQuery.noConflict()</script>
+	
+	<link rel="stylesheet" href="css/core.css">
+	<link rel="stylesheet" href="css/theme.css">
+
+	<script src="js/webfont.js"></script>
+	<script src="js/core.js"></script>
+
+	<!-- nwayo 1.0.0a (c) 2014 Absolunet -->
+</head>
+<body class="page-settings" data-context="page-settings">
+	
+	<div class="page-height">
+		
+		
+		<header class="page-header" data-context="page-header">
+			<nav class="drawer-menu main-menu" data-behavior="drawer-menu">
+				<div class="handle" title="Main Menu" data-action="open"></div>
+				<div class="drawer">
+					
+					<ul data-behavior="main-menu-links">
+					    <li><a href="index.html">Dashboard</a></li>
+					    <li><a href="monitor.html">Monitor</a></li>
+					    <li><a href="system-event-log.html">System Event Log</a></li>
+					    <li><a href="oneclick-upgrade.html">OneClick Upgrade</a></li>
+					    <li><a href="remote-access.html">Remote Access</a></li>
+					    <li><a href="network-configuration.html">Network Configuration</a></li>
+					</ul>
+					
+				</div>
+			</nav>
+			<div class="logo">
+				<a href="index.html"><img src="" alt="" data-behavior="logo" /></a>
+			</div>
+			<nav class="drawer-menu user-menu" data-behavior="drawer-menu">
+				<div class="handle" title="Profile" data-action="open"></div>
+				<div class="drawer">
+					
+					<ul data-behavior="user-menu-links">
+						<li><a href="settings.html">Settings</a></li>
+						<li><a href="index.html" data-action="logout">Logout</a></li>
+					</ul>
+				</div>
+			</nav>
+			<nav class="drawer-menu help-menu" data-behavior="drawer-menu">
+				<div class="handle" title="Help" data-action="open"></div>
+				<div class="drawer">
+					
+					<ul data-behavior="help-menu-links">
+						<!-- <li><a href="#">Help</a></li> -->
+					    <li><a target="_blank" href="doc/System_Manager_API_v3.0_Detail.htm" >API Doc</a></li>
+						<li><a href="#" data-action="version">About</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="clearer"></div>
+		</header>
+
+		<div class="page-body">
+			<div class="page-intro">
+
+    
+    <ul class="breadcrumb" data-behavior="breadcrumb">
+    	<li class="root"><a href="index.html">Dashboard</a></li>
+    </ul>
+    <h1 class="base-title">General Settings</h1>
+
+</div>
+
+<aside class="page-sidebar">
+
+    <aside class="base-block shortcuts">
+        <div class="header">
+            <h2 class="title">My Profile</h2>
+        </div>
+        <div class="content">
+            <ul>
+                <li><a href="#ChangePassword">Change Password</a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <aside class="base-block shortcuts" data-admin-only>
+        <div class="header">
+            <h2 class="title">Administration</h2>
+        </div>
+        <div class="content">
+            <ul>
+                <li><a href="#InterfacePrefs">Interface Preferences</a></li>
+                <li><a href="#ManageUsers">User Management</a></li>
+                <li><a href="#Security">Security</a></li>
+            </ul>
+        </div>
+    </aside>
+
+</aside>
+
+<section class="page-content">
+
+    <aside class="base-block themed settings-change-password" id="ChangePassword">
+        <div class="header">
+            <h2 class="title">Change Password</h2>
+        </div>
+                <div class="message" data-context="settings-password-updated-message">
+
+        </div>
+        <div class="content">
+            <form class="base-form" data-context="settings-change-password" data-user="">
+               <div class="field">
+                  <label>New password :</label>
+                  <input type="password" class="base-input-text required" name="password" value="">
+               </div>
+               <div class="field">
+                  <label>Confirm new password :</label>
+                  <input type="password" class="base-input-text compare" name="password2" value="" data-compare-to="password">
+               </div>
+               <div class="hr">
+               </div>
+               <button class="base-button" data-action="change-password" type="button">Change password</button>
+            </form>
+        </div>
+    </aside>
+
+    <aside class="base-block themed settings-interface-prefs" id="InterfacePrefs" data-admin-only>
+        <div class="header">
+            <h2 class="title">Interface Preferences</h2>
+        </div>
+        <div class="content">
+            <form class="base-form" data-context="settings-interface-prefs-form">
+
+            </form>
+        </div>
+    </aside>
+
+    <aside class="base-block themed grid settings-manage-users" id="ManageUsers" data-context="settings-users-management" data-admin-only>
+        <div class="header">
+            <h2 class="title">User Management</h2>
+        </div>
+        <div class="message" data-context="settings-users-message">
+
+        </div>
+        <table class="base-grid">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Role</th>
+                    <th class="center" colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody data-context="settings-users-list">
+
+            </tbody>
+        </table>
+        <div class="content">
+            <button class="base-button" data-action="create-user">Create New User</button>
+        </div>
+    </aside>
+
+    <aside class="base-block themed settings-security" id="Security" data-context="settings-security" data-admin-only>
+        <div class="header">
+            <h2 class="title">Security</h2>
+        </div>
+        <div class="message" data-context="settings-security-message">
+            <div data-context="certificates"> </div>
+            <div data-context="https"> </div>
+            <div data-context="none"> </div>
+        </div>
+        <div class="content">
+            <form class="base-form" data-context="settings-security-form">
+                <div class="field">
+                    <input type="checkbox" id="enableHTTPS" name="enableHTTPS" data-action="enable-HTTPS" value="true"><label for="enableHTTPS">Enable HTTPS</label>
+                </div>
+                <section data-context="settings-security-https-details">
+                    <div class="field upload-files" data-context="upload-cert" enctype="multipart/form-data">
+                        <input type="file" name="certfile" data-field="certfilename" class="file" />
+                        <button type="button" class="base-button colored" data-behavior="upload_cert">Select certificate file</button>
+                        <span class="filename-hint small" id="cert-label"></span>
+                    </div>
+                    <div class="field upload-files" data-context="upload-key" enctype="multipart/form-data">
+                        <input type="file" name="keyfile" data-field="keyfilename" class="file" />
+                        <button type="button" class="base-button colored" data-behavior="upload_key">Select private key file</button>
+                        <span class="filename-hint small" id="key-label"></span>
+                    </div>
+                    <div class="field">
+                        <input type="checkbox" id="enableSSL" name="enableSSL" data-action="enable-SSL" value="true"><label for="enableSSL">Enable Strict SSL Validation</label>
+                    </div>
+                    <div class="field upload-files" data-context="upload-ca-cert" enctype="multipart/form-data">
+                        <input type="file" name="cacertfile" data-field="cacertfilename" class="file" />
+                        <button type="button" class="base-button colored" data-behavior="upload_cacertkey">Select CA certificate file</button>
+                        <span class="filename-hint small" id="cacert-label"></span>
+                    </div>
+                </section>
+                <div class="hr"></div>
+                <div class="submit-bar">
+                    <button class="base-button" data-action="apply-security-settings">Apply</button>
+                    <span class="loader"></span>
+                </div>
+            </form>
+        </div>
+    </aside>
+
+</section>
+
+			
+			<div class="clearer"></div>
+		</div>
+
+		<div class="height-push"></div>
+	</div>
+
+	
+	<footer class="page-footer">
+		<nav class="links left">
+			
+			<ul data-behavior="main-menu-links">
+			    <li><a href="index.html">Dashboard</a></li>
+			    <li><a href="monitor.html">Monitor</a></li>
+			    <li><a href="system-event-log.html">System Event Log</a></li>
+			    <li><a href="oneclick-upgrade.html">OneClick Upgrade</a></li>
+			    <li><a href="remote-access.html">Remote Access</a></li>
+			    <li><a href="network-configuration.html">Network Configuration</a></li>
+			</ul>
+			
+		</nav>
+		<nav class="links right">
+			
+			<ul data-behavior="user-menu-links">
+				<li><a href="settings.html">Settings</a></li>
+				<li><a href="index.html" data-action="logout">Logout</a></li>
+			</ul>
+			
+			<ul data-behavior="help-menu-links">
+				<!-- <li><a href="#">Help</a></li> -->
+			    <li><a target="_blank" href="doc/System_Manager_API_v3.0_Detail.htm" >API Doc</a></li>
+				<li><a href="#" data-action="version">About</a></li>
+			</ul>
+		</nav>
+	</footer>
+
+</body>
+</html>

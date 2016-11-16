@@ -1,0 +1,33 @@
+<html>
+ <head>
+    <script type="text/javascript" src="jquery-3.1.1.js"></script>
+</head>
+
+<body>  
+
+<button id="ajax">ajax call</button>
+<button id="json">json</button>
+
+
+<script type="text/javascript">
+    $('#json').click(function(){ 
+//        alert('json');
+         $.getJSON("http://172.20.10.4:3000/getversion",
+         function(data) {
+            alert("aa");         
+          });   
+    });
+
+
+	
+	       
+
+	
+	
+</script>
+
+
+
+</body>
+
+</html>
